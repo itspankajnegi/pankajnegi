@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>ReactJS - Netflix App</title>
+  </head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root"></div>
+
+    <script
+      crossorigin
+      src="https://unpkg.com/react@17/umd/react.production.min.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js"
+    ></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <script type="text/babel" src="js/Cards.js"></script>
+    <script type="text/babel" src="js/Sdata.js"></script>
+
+    <script type="text/babel">
+      ReactDOM.render(
+        <>
+          <h1 className="heading_style">
+            List of top 5 Netflix Series in 2021
+          </h1>
+          {Sdata.map((val) => {
+            return (
+              <Card
+                key={val.id}
+                imgsrc={val.imgsource}
+                title={val.title}
+                sname={val.sname}
+                link={val.links}
+              />
+            );
+          })}
+        </>,
+        document.getElementById("root")
+      );
+    </script>
+  </body>
+</html>
